@@ -1,16 +1,16 @@
 seconds = int(input("Введите количество секунд: "))
 minute = seconds // 60
-ostatok = seconds % 60
-if minute == 1:
+remainder = seconds % 60
+if minute % 10 == 1 and minute % 100 != 11:
     min_text = "минута"
-elif minute >= 2 and minute <= 4:
+elif 2 <= minute % 10 <= 4 and not (12 <= minute % 100 <= 14):
     min_text = "минуты"
 else:
     min_text = "минут"
-if ostatok == 1:
+if remainder % 10 == 1 and remainder % 100 != 11:
     sek_text = "секунда"
-elif ostatok >= 2 and ostatok <= 4:
+elif 2 <= remainder % 10 <= 4 and not (12 <= remainder % 100 <= 14):
     sek_text = "секунды"
 else:
     sek_text = "секунд"
-print(minute, min_text, ostatok, sek_text)
+print(minute, min_text, remainder, sek_text)
